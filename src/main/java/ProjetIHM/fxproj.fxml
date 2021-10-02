@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.embed.swing.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="889.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ProjetIHM.Controller">
+   <children>
+      <MenuBar prefHeight="35.0" prefWidth="1920.0">
+        <menus>
+          <Menu fx:id="fichier" mnemonicParsing="false" text="Fichier">
+            <items>
+                  <Menu fx:id="exporter" mnemonicParsing="false" onAction="#exportEvent" text="Exporter">
+                    <items>
+                        <MenuItem fx:id="export" mnemonicParsing="false" onAction="#exportEvent" text="PNG" />
+                    </items>
+                  </Menu>
+              <MenuItem mnemonicParsing="false" onAction="#close" text="Fermer" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Aide">
+            <items>
+              <MenuItem fx:id="about" mnemonicParsing="false" onAction="#about" text="A propos" />
+                  <MenuItem mnemonicParsing="false" onAction="#aide" text="Aide" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <HBox layoutY="32.0" prefHeight="857.0" prefWidth="785.0">
+         <children>
+            <VBox prefHeight="259.0" prefWidth="700.0">
+               <children>
+                  <Canvas fx:id="color" height="349.0" width="787.0">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin></Canvas>
+                  <Line endX="689.5" startX="-100.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Line>
+                  <Canvas fx:id="gray" height="490.0" width="787.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <GridPane fx:id="mainGridPane" gridLinesVisible="true" layoutX="-4.0" layoutY="32.0" prefHeight="857.0" prefWidth="1920.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="450.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1126.0" minWidth="31.0" prefWidth="1126.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="733.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <top>
+                  <GridPane prefHeight="107.0" prefWidth="548.0" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="321.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="592.0" minHeight="8.0" prefHeight="88.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Slider fx:id="slider" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" prefHeight="49.0" prefWidth="600.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets right="40.0" />
+                           </GridPane.margin>
+                           <padding>
+                              <Insets left="10.0" top="10.0" />
+                           </padding>
+                        </Slider>
+                        <Label text="Nombre de couleurs">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </GridPane>
+               </top>
+               <center>
+                  <HBox prefHeight="130.0" prefWidth="672.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <GridPane fx:id="elements" maxWidth="500.0" prefHeight="849.0" prefWidth="500.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                            <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="10.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints fillHeight="false" maxHeight="140.0" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="140.0" minHeight="0.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="140.0" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="140.0" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="140.0" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="140.0" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="140.0" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="140.0" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="140.0" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="140.0" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <ColorPicker prefHeight="80.0" prefWidth="253.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
+                              <ComboBox prefHeight="92.0" prefWidth="247.0" GridPane.hgrow="ALWAYS" />
+                              <ComboBox prefHeight="74.0" prefWidth="323.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                              <ColorPicker prefHeight="89.0" prefWidth="270.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                              <ComboBox prefHeight="116.0" prefWidth="266.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+                              <ColorPicker prefHeight="89.0" prefWidth="270.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </ColorPicker>
+                              <ComboBox prefHeight="113.0" prefWidth="260.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </ComboBox>
+                              <ColorPicker prefHeight="89.0" prefWidth="328.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+                              <ComboBox prefHeight="104.0" prefWidth="261.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
+                              <ColorPicker prefHeight="89.0" prefWidth="328.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
+                              <ComboBox prefHeight="110.0" prefWidth="263.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" />
+                              <ColorPicker prefHeight="89.0" prefWidth="328.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" />
+                              <ComboBox prefHeight="119.0" prefWidth="262.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" />
+                              <ColorPicker prefHeight="89.0" prefWidth="328.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" />
+                              <ComboBox prefHeight="96.0" prefWidth="252.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" />
+                              <ColorPicker prefHeight="89.0" prefWidth="328.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" />
+                              <ComboBox prefHeight="101.0" prefWidth="255.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8" />
+                              <ColorPicker prefHeight="89.0" prefWidth="328.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8" />
+                              <ComboBox prefHeight="97.0" prefWidth="250.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="9" />
+                              <ColorPicker prefHeight="89.0" prefWidth="328.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="9" />
+                           </children>
+                        </GridPane>
+                        <TabPane fx:id="panel" maxHeight="800.0" maxWidth="600.0" prefHeight="800.0" prefWidth="589.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Couleur Chaude">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox fx:id="hotColor" prefHeight="715.0" prefWidth="338.0">
+                                             <children>
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d81fff" height="71.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7d088a" height="71.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="71.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c30000" height="71.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff7b00" height="71.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ee9116" height="71.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffeb1f" height="71.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffb00e6" height="71.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffd000" height="71.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffdd00af" height="71.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                                             </children></VBox>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Couleur Froide">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox fx:id="freshColor" prefHeight="717.0" prefWidth="589.0">
+                                             <children>
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f600ff" height="71.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ce2bda" height="71.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7000e0" height="71.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6c1da1" height="71.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="71.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#053b6f" height="71.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#009d59" height="71.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#34e093d5" height="71.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#84f100" height="71.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#56900a" height="71.0" stroke="BLACK" strokeType="INSIDE" width="136.0" />
+                                             </children>
+                                          </VBox>
+                                       </children></AnchorPane>
+                              </content>
+                            </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children>
+                  </HBox>
+               </center>
+            </BorderPane>
+         </children>
+      </GridPane>
+   </children>
+</Pane>
